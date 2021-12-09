@@ -1,0 +1,24 @@
+﻿@model AnimalModel
+
+@using (Html.BeginForm("Create", "Zoo", FormMethod.Post))
+{
+    <div class="mb-3 col-5">
+        @Html.LabelFor(animal => animal.Name, new { @class= "form-label" })
+        @Html.TextBoxFor(animal => animal.Name, new { @class= "form-control" })
+    </div>
+    <div class="mb-3 col-5">
+        @Html.LabelFor(animal => animal.Description, new { @class= "form-label" })
+        @Html.TextBoxFor(animal => animal.Description, new { @class= "form-control" })
+    </div>
+    <div class="mb-3 col-5">
+        @Html.LabelFor(animal => animal.Gender, new { @class= "form-label" })
+        @Html.TextBoxFor(zoo => zoo.Gender, new { @class= "form-control" })
+    </div>
+    <div class="mb-3 col-5">
+        @Html.LabelFor(animal => animal.Age, new { @class= "form-label" })
+        @Html.TextBoxFor(animal => animal.Age, new { @class= "form-control", @type="number" })
+    </div>
+    <div class="mb-3 col-5">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+}

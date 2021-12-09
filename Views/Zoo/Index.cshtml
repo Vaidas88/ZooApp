@@ -1,0 +1,31 @@
+﻿@model List<AnimalModel>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var animal in @Model)
+        {
+            <tr>
+                <td>@animal.Name</td>
+                <td>@animal.Description</td>
+                <td>@animal.Gender</td>
+                <td>@animal.Age</td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", "Zoo", new { id = animal.Id },  new { @class= "btn btn-primary" })
+                    @Html.ActionLink("Edit", "Edit", "Zoo", new { id = animal.Id },  new { @class= "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="d-flex w-100 justify-content-between">
+    @Html.ActionLink("Create", "Create", "Zoo", new {}, new { @class= "btn btn-primary" })
+</div>
