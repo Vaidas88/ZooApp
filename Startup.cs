@@ -27,6 +27,7 @@ namespace ZooApp
         {
             services.AddTransient<SqlConnection>(_ => new SqlConnection(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddSingleton<ZooService>();
+            services.AddSingleton<SponsorService>();
             services.AddControllersWithViews();
         }
 

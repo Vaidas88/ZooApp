@@ -1,0 +1,29 @@
+﻿@model SponsorFormModel
+
+@using (Html.BeginForm("Create", "Sponsor", FormMethod.Post))
+{
+    <div class="mb-3 col-5">
+        @Html.LabelFor(sponsor => sponsor.FirstName, new { @class= "form-label" })
+        @Html.TextBoxFor(sponsor => sponsor.FirstName, new { @class= "form-control" })
+    </div>
+    <div class="mb-3 col-5">
+        @Html.LabelFor(sponsor => sponsor.LastName, new { @class= "form-label" })
+        @Html.TextBoxFor(sponsor => sponsor.LastName, new { @class= "form-control" })
+    </div>
+    <div class="mb-3 col-5">
+        @Html.LabelFor(sponsor => sponsor.Amount, new { @class= "form-label" })
+        @Html.TextBoxFor(sponsor => sponsor.Amount, new { @class= "form-control" })
+    </div>
+    <div class="mb-3 col-5">
+        @Html.LabelFor(sponsor => sponsor.SponsoredAnimalId, new { @class= "form-label" })
+        <select class="form-control" name="SponsoredAnimalId">
+            @foreach (var animal in @Model.Animals)
+            {
+                <option value="@animal.Id">@animal.Name</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3 col-5">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+}
