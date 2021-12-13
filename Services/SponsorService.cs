@@ -60,7 +60,7 @@ namespace ZooApp.Services
 
         internal SponsorFormModel GetSingle(int id)
         {
-            string sql = $"SELECT * FROM dbo.Sponsors WHERE Id = {id};";
+            string sql = $"SELECT Id, FirstName, LastName, Amount, AnimalId as SponsoredAnimalId FROM dbo.Sponsors WHERE Id = {id};";
 
             return _connection.QuerySingle<SponsorFormModel>(sql);
         }

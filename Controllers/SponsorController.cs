@@ -24,13 +24,12 @@ namespace ZooApp.Controllers
         // GET: SponsorController/Create
         public ActionResult Create()
         {
-            SponsorFormModel sponsorForm = new SponsorFormModel(_zooService.GetAll());
-            return View(sponsorForm);
+            SponsorFormModel sponsorFormModel = new SponsorFormModel(_zooService.GetAll());
+            return View(sponsorFormModel);
         }
 
         // POST: SponsorController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(SponsorModel sponsor)
         {
             _sponsorService.AddSponsor(sponsor);
@@ -47,7 +46,6 @@ namespace ZooApp.Controllers
 
         // POST: SponsorController/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit(SponsorModel sponsor)
         {
             _sponsorService.EditSponsor(sponsor);
