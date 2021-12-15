@@ -49,7 +49,7 @@ namespace ZooApp.Controllers
         public ActionResult Edit(SponsorModel sponsor)
         {
             _sponsorService.EditSponsor(sponsor);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Sponsor");
         }
 
         // GET: SponsorController/Delete/5
